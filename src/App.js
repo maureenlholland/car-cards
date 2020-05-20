@@ -8,14 +8,15 @@ import {
   ListItem,
   Button
 } from 'evergreen-ui'
+import SingleCar from './components/SingleCar';
 
 const wrapperStyles = { maxWidth: '900px', margin: '0 auto', padding: '40px' };
 
 function App() {
   return (
-    <div className="car-cards">
+    <div className="car__cards">
       <header>
-        <Heading is="h1" size="900" marginTop="40px" textAlign="center">Car Cards</Heading>
+        <Heading is="h1" size={900} marginTop="40px" textAlign="center">Car Cards</Heading>
       </header>
       <main style={wrapperStyles}>
         <Pane
@@ -45,6 +46,7 @@ function App() {
         <Pane marginTop="40px" display="flex" justifyContent="center">
           <Button appearance="primary" height="34">Add new card</Button>
         </Pane>
+        <SingleCar />
       </main>
     </div>
   );
