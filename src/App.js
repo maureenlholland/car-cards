@@ -23,7 +23,7 @@ function App() {
           gridTemplateColumns="1fr 1fr 1fr"
           gridGap="20px"
         >
-          <Card elevation={1} padding="20px">
+          <Card elevation={1} padding="20px" background="white">
             <Heading>Mazda CX-5</Heading>
             <Paragraph>Quick facts:</Paragraph>
             <UnorderedList>
@@ -32,7 +32,7 @@ function App() {
               <ListItem>Gas Mileage</ListItem>
             </UnorderedList>
           </Card>
-          <Card elevation={1} padding="20px">
+          <Card elevation={1} padding="20px" background="white">
             <Heading>Ford Escape</Heading>
             <Paragraph>Quick facts:</Paragraph>
             <UnorderedList>
