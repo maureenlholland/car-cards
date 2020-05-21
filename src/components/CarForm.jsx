@@ -1,10 +1,13 @@
 import React from 'react';
 import {
-  Pane,
+  IconButton,
+  Button,
   Heading,
   TextInputField,
+  FormField,
   SelectField,
   TextareaField,
+  RadioGroup,
   Checkbox
 } from 'evergreen-ui'
 
@@ -12,7 +15,8 @@ import {
 function CarForm() {
   return (
     <>
-      <Heading is="h2">Car Form: blank for new, pre-filled for existing</Heading>
+      {/* pre-fill form if editing existing car, show blank if new */}
+      <Heading is="h2">Car Form</Heading>
       <form>
         <TextInputField
           label="Make"
@@ -26,6 +30,7 @@ function CarForm() {
           placeholder="CX-5"
           required
         />
+        {/* on change, show selected field */}
         <SelectField
           label="Year"
           name="year"
@@ -44,21 +49,42 @@ function CarForm() {
           name="link"
           type="url"
         />
-        <Pane>
-          {/* attributes can be used as tags */}
-          <label>Select all attributes that apply:</label>
-          <Checkbox label="AWD" />
-          <Checkbox checked label="Nearby dealership" />
-          <Checkbox label="Good fuel economy" />
-          <Checkbox label="Turbo engine" />
-          {/* add attribute button */}
-        </Pane>
-        {/* hide textarea behind "Add note" button, allows user attribution, easier to edit directly on existing car page */}
+        <RadioGroup
+          label="Status"
+          value={undefined}
+          options={[{label: 'New', value: 'new'}, {label: 'Pre-owned', value: 'preOwned'}]}
+          onChange={(e) => console.log(e)}
+        />
+        <TextInputField
+          label="Price Range"
+          name="priceRange"
+          placeholder="$25,000 - 30,000"
+        />
+        <FormField
+          label="Attributes"
+          description="Select all that apply. These are searchable tags on the quick view cards"
+        >
+        {/* on click, toggle checkbox checked attribute */}
+        <Checkbox label="AWD" />
+        <Checkbox checked label="Nearby dealership" />
+        <Checkbox label="Good fuel economy" />
+        <Checkbox label="Turbo engine" />
+        </FormField>
+        <TextInputField
+          label="New Attribute"
+          name="attribute"
+        />
+        <Button appearance="primary">Save</Button>
+        {/* on click, transform to save button, show and focus input for new attribute */}
+        <IconButton icon="plus" />
         <TextareaField
           label="Notes"
           description="Highlight pros or cons, add personal opinions, link to outside reviews."
           inputHeight={200}
         />
+        {/* on click, save to db, redirect to new single car page */}
+        {/* if error, display error message */}
+        <Button appearance="primary">Save Car</Button>
       </form>
     </>
   );
