@@ -44,7 +44,7 @@ function CarCardList() {
           </Card>
         </Pane>
         <Pane marginTop="40px" display="flex" justifyContent="center">
-          <Button appearance="primary" height="34"><Link to="/car">Add new card</Link></Button>
+          <Button appearance="primary" height="34"><Link style={{ textDecoration: 'none', color: 'inherit' }} to="/edit">Add new card</Link></Button>
         </Pane>
     </>
   );
