@@ -1,12 +1,13 @@
 import React from 'react';
-import { Button } from 'cauldron-react';
-
-// const wrapperStyles = { maxWidth: '900px', margin: '0 auto', padding: '40px' };
+import {
+  Heading,
+  Button
+} from 'evergreen-ui'
 
 function SingleCar() {
   return (
     <div className="car__single">
-        <h1>Name of Car</h1>
+        <Heading is="h2">Name of Car</Heading>
         <Button>Edit Car</Button>
     </div>
   );

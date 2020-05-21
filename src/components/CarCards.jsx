@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import {
   Pane,
   Card,
@@ -12,7 +13,7 @@ import {
 function CarCard() {
   return (
     <Card elevation={1} padding="20px" background="white">
-    <Heading>Mazda CX-5</Heading>
+    <Heading is="h2">Mazda CX-5</Heading>
     <Paragraph>Quick facts:</Paragraph>
     <UnorderedList>
         <ListItem>Size</ListItem>
@@ -43,7 +44,7 @@ function CarCardList() {
           </Card>
         </Pane>
         <Pane marginTop="40px" display="flex" justifyContent="center">
-          <Button appearance="primary" height="34">Add new card</Button>
+          <Button appearance="primary" height="34"><Link to="/car">Add new card</Link></Button>
         </Pane>
     </>
   );
