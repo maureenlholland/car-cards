@@ -4,7 +4,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import { Heading } from 'evergreen-ui';
+import { Heading, Pane } from 'evergreen-ui';
 import CarCards from './components/CarCards';
 import SingleCar from './components/SingleCar';
 import CarForm from './components/CarForm';
@@ -14,7 +14,7 @@ const wrapperStyles = { maxWidth: '900px', margin: '0 auto', padding: '40px' };
 function App() {
   return (
     <Router>
-      <div className="car__cards">
+      <Pane className="car__cards">
         <header>
           <Heading is="h1" size={900} marginTop="40px" textAlign="center">Car Cards</Heading>
         </header>
@@ -32,7 +32,7 @@ function App() {
             </Route>
           </Switch>
         </main>
-      </div>
+      </Pane>
     </Router>
   );
 }

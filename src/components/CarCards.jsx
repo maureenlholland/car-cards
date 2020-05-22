@@ -1,52 +1,49 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import {
-  Pane,
   Card,
+  Pane,
   Heading,
   Paragraph,
   UnorderedList,
   ListItem,
-  Button
+  Button,
+  IconButton
 } from 'evergreen-ui'
 
 function CarCard() {
   return (
-    <Card elevation={1} padding="20px" background="white">
-    <Heading is="h2">Mazda CX-5</Heading>
-    <Paragraph>Quick facts:</Paragraph>
-    <UnorderedList>
-        <ListItem>Size</ListItem>
-        <ListItem>Price (range from low to high trim</ListItem>
-        <ListItem>Gas Mileage</ListItem>
-    </UnorderedList>
-    </Card>
+    <ListItem>
+      <Card elevation={2} padding="20px" background="white">
+        <Heading is="h2">Mazda CX-5</Heading>
+        {/* send to /edit with :id */}
+        <IconButton icon="edit" />
+        {/* are you sure popup, delete from db, update list */}
+        <IconButton icon="trash" />
+        <Link>Link to car</Link>
+        <Paragraph>Quick facts: Price, Size</Paragraph>
+        <Paragraph>Tags list</Paragraph>
+        <Button>See details</Button>
+      </Card>
+    </ListItem>
   );
 }
 
 function CarCardList() {
   return (
-    <>
-        <Pane
+    <Pane className="car__list">
+        <UnorderedList
           display="grid"
           gridTemplateColumns="1fr 1fr 1fr"
           gridGap="20px"
         >
           <CarCard />
-          <Card elevation={1} padding="20px" background="white">
-            <Heading>Ford Escape</Heading>
-            <Paragraph>Quick facts:</Paragraph>
-            <UnorderedList>
-              <ListItem>Size</ListItem>
-              <ListItem>Price (range from low to high trim</ListItem>
-              <ListItem>Gas Mileage</ListItem>
-            </UnorderedList>
-          </Card>
-        </Pane>
+          <CarCard />
+        </UnorderedList>
         <Pane marginTop="40px" display="flex" justifyContent="center">
           <Button appearance="primary" height="34"><Link style={{ textDecoration: 'none', color: 'inherit' }} to="/edit">Add new card</Link></Button>
         </Pane>
-    </>
+    </Pane>
   );
 }
 
