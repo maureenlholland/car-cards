@@ -104,7 +104,7 @@ function CarForm() {
           name="attribute"
           placeholder="Something I want"
         />
-        <Button appearance="primary">Save</Button>
+        <Button appearance="primary">Add</Button>
         {/* on click, transform to save button, show and focus input for new attribute */}
         <IconButton icon="plus" />
         {/* on click, save to db, redirect to new single car page */}

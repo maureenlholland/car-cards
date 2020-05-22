@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link as NavLink } from "react-router-dom";
 import {
   Card,
   Pane,
@@ -8,7 +8,8 @@ import {
   UnorderedList,
   ListItem,
   Button,
-  IconButton
+  IconButton,
+  Link
 } from 'evergreen-ui'
 
 function CarCard() {
@@ -41,7 +42,7 @@ function CarCardList() {
           <CarCard />
         </UnorderedList>
         <Pane marginTop="40px" display="flex" justifyContent="center">
-          <Button appearance="primary" height="34"><Link style={{ textDecoration: 'none', color: 'inherit' }} to="/edit">Add new card</Link></Button>
+          <Button appearance="primary" height="34"><NavLink style={{ textDecoration: 'none', color: 'inherit' }} to="/edit">Add new card</NavLink></Button>
         </Pane>
     </Pane>
   );
