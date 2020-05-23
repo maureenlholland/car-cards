@@ -14,7 +14,14 @@ import users from '../mockData/users';
 const CarNote = ({ note, setNote, editNoteId, setEditNoteId, user }) => {
     // only show edit/delete buttons if note user_id is current logged in user
     return (
-        <Card className="car-notes__single">
+        <Card
+            className="car-notes__single"
+            marginTop="20px"
+            marginBottom="20px"
+            display="flex"
+            elevation={3}
+            padding="20px" 
+        >
             <Avatar
                 src={`${user.avatar}`}
                 name={user.name}
@@ -24,11 +31,15 @@ const CarNote = ({ note, setNote, editNoteId, setEditNoteId, user }) => {
                 <CarFormNote note={note.content} handleChange={setNote} />
             ) : (
                 <>
-                <Paragraph>{user.name}</Paragraph>
-                <Paragraph>{note.content}</Paragraph>
-                <IconButton icon="edit" onClick={(e) => setEditNoteId(note.id)} />
-                {/* are you sure popup, delete from db, update list */}
-                <IconButton icon="trash" />
+                <div style={{ marginLeft: '20px' }}>
+                    <Paragraph size={500} marginBottom="10px">{user.name}:</Paragraph>
+                    <Paragraph>{note.content}</Paragraph>
+                </div>
+                <div className="actions actions--note">
+                    <IconButton icon="edit" onClick={(e) => setEditNoteId(note.id)} />
+                    {/* are you sure popup, delete from db, update list */}
+                    <IconButton icon="trash" />
+                </div>
                 </>
             )}
         </Card>
@@ -54,8 +65,8 @@ export default function CarNotes({ savedNotes, saveNote }) {
     }
 
     return (
-        <Pane className="car-notes">
-            <Heading is="h3" size={700}>User Notes: </Heading>
+        <Pane className="car-notes" marginTop="40px">
+            <Heading is="h3" size={500}>User Notes: </Heading>
             {(notes.length > 0 || addNote) ? (
                 notes.map((n) => (
                     <CarNote

@@ -13,15 +13,24 @@ code {
     monospace;
 }
 
-header {
-  background: #425A70;
-  text-align: center;
-}
-
 .wrapper {
   max-width: 900px;
   margin: 0 auto;
   padding: 40px;
+}
+
+.fb-container {
+  display: flex;
+}
+
+.actions {
+  margin-left: 20px;
+  display: flex;
+}
+
+header {
+  background: #425A70;
+  text-align: center;
 }
 
 .car-cards ul,
@@ -29,4 +38,14 @@ header {
   list-style: none;
   padding-left: 0;
   margin-left: 0;
+}
+
+.car-notes__single {
+  position: relative;
+}
+
+.car-notes__single .actions {
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }

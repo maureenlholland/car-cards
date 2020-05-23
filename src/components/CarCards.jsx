@@ -29,7 +29,7 @@ export default function CarCards() {
   return (
     <Pane className="car-cards">
         <UnorderedList>
-          {cars.map((c) => <CarCard car={c}/>)}
+          {cars.map((c) => <CarCard key={c.id} car={c}/>)}
         </UnorderedList>
     </Pane>
   );
