@@ -25,7 +25,7 @@ const carNote = ({ note, setNote, editNoteId, setEditNoteId }) => {
     );
 };
 
-export default function CarNotes({ saveNote }) {
+export default function CarNotes({ savedNotes, saveNote }) {
     const [notes, updateNotes] = useState([])
     const [editNoteId, setEditNoteId] = useState(null);
     const [note, setNote] = useState('');
