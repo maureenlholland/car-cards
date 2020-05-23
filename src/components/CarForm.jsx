@@ -43,7 +43,7 @@ function CarForm() {
 
   return (
     <Pane className="car-form">
-      <Heading is="h2">Car Form</Heading>
+      <Heading is="h2">{window.location.search ? 'Edit car' : 'New car'}</Heading>
       <form onSubmit={(e) => handleSubmit(e)}>
         <TextInputField
           label="Make"

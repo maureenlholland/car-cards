@@ -5,7 +5,7 @@ import {
   Pane,
   UnorderedList,
   ListItem,
-  Button
+  Button,
 } from 'evergreen-ui';
 import CarSummary from './CarSummary';
 import CarAttributes from './CarAttributes';
@@ -31,7 +31,7 @@ export default function CarCards() {
           <CarCard car={car} />
         </UnorderedList>
         <Button appearance="primary" height="34">
-          <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to="/edit">Add new card</NavLink>
+          <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to="/form">Add new card</NavLink>
         </Button>
     </Pane>
   );

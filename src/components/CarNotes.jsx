@@ -12,6 +12,7 @@ import CarFormNote from './CarFormNote';
 import users from '../mockData/users';
 
 const CarNote = ({ note, setNote, editNoteId, setEditNoteId, user }) => {
+    // only show edit/delete buttons if note user_id is current logged in user
     return (
         <Card className="car-notes__single">
             <Avatar
@@ -20,7 +21,7 @@ const CarNote = ({ note, setNote, editNoteId, setEditNoteId, user }) => {
                 size={150}
             />
             {editNoteId === note.id ? (
-                <CarFormNote note={note} handleChange={setNote} />
+                <CarFormNote note={note.content} handleChange={setNote} />
             ) : (
                 <>
                 <Paragraph>{user.name}</Paragraph>

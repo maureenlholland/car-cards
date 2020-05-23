@@ -21,7 +21,7 @@ function App() {
         <Header />
         <main style={wrapperStyles}>
           <Switch>
-          <Route path="/edit">
+          <Route path="/form">
               <CarForm />
             </Route>
             <Route path="/:id">

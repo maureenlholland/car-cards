@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link as NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { Pane } from 'evergreen-ui';
+import { Pane, IconButton } from 'evergreen-ui';
 import CarNotes from './CarNotes';
 import CarSummary from './CarSummary';
 import CarAttributes from './CarAttributes';
@@ -12,7 +13,11 @@ function Car() {
 
   return (
     <Pane className={`car car--${id}`}>
-        {/* add edit for car summary and attributes, delete for car */}
+        <NavLink to={`/form?id=${car.id}`}>
+          <IconButton icon="edit" />
+        </NavLink>
+        {/* are you sure popup, delete from db, update list */}
+        <IconButton icon="trash" />
         <CarSummary car={car} />
         <CarAttributes attributes={car.attributes} />
         <CarNotes savedNotes={car.notes} />
