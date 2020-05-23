@@ -1,44 +1,64 @@
 import React, { useState } from 'react';
 import {
   Pane,
-  IconButton,
   Button,
   Heading,
   TextInputField,
   FormField,
   SelectField,
   RadioGroup,
-  Checkbox
-} from 'evergreen-ui'
+} from 'evergreen-ui';
+import CarFormAttributes from './CarFormAttributes';
 
 
 function CarForm() {
+  const basicAttributes = [
+    {
+      label: 'AWD',
+      value: 'awd',
+      isChecked: false
+    },
+    {
+      label: 'Nearby dealership',
+      value: 'dealership',
+      isChecked: false
+    },
+    {
+      label: 'Good fuel economy',
+      value: 'fuel',
+      isChecked: false
+    },
+    {
+      label: 'Turbo engine',
+      value: 'turbo',
+      isChecked: false
+    }
+  ];
+
+  // on mount, merge blank state with existing car info if params id
+
   const [make, setMake] = useState('');
   const [model, setModel] = useState('');
+  const [year, setYear] = useState('2020');
   const [link, setLink] = useState('');
+  const [status, setStatus] = useState('new');
   const [highPrice, setHighPrice] = useState('');
   const [lowPrice, setLowPrice] = useState('');
   const [height, setHeight] = useState('');
   const [width, setWidth] = useState('');
   const [length, setLength] = useState('');
-  const [attribute, setAttribute] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    // get all checked attributes
     // clean data
     // call firebase to save car
       // on success, redirect to new car card 
       // on failure, display errors
   }
 
-  const addAttribute = (e) => {
-    e.preventDefault();
-    // add checkbox with new attribute, default checked
-  }
-
   return (
     <Pane className="car__form">
-      {/* pre-fill form if editing existing car, show blank if new */}
       <Heading is="h2">Car Form</Heading>
       <form onSubmit={(e) => handleSubmit(e)}>
         <TextInputField
@@ -57,13 +77,11 @@ function CarForm() {
           value={model}
           onChange={(e) => setModel(e.target.value)}
         />
-        {/* on change, show selected field */}
         <SelectField
           label="Year"
           name="year"
-          defaultValue="2020"
-          value={undefined}
-          onChange={event => console.log(event.target.value)}
+          value={year}
+          onChange={e => setYear(e.target.value)}
           required
         >
           <option value="2020">2020</option>
@@ -81,9 +99,9 @@ function CarForm() {
         />
         <RadioGroup
           label="Status"
-          value={undefined}
+          value={status}
           options={[{label: 'New', value: 'new'}, {label: 'Pre-owned', value: 'preOwned'}]}
-          onChange={(e) => console.log(e)}
+          onChange={(value) => setStatus(value)}
         />
         <FormField
           label="Price Range"
@@ -128,28 +146,7 @@ function CarForm() {
             onChange={(e) => setHeight(e.target.value)}
           />
         </FormField>
-        <FormField
-          label="Attributes"
-          description="Select all that apply. These are searchable tags on the quick view cards"
-        >
-        {/* on click, toggle checkbox checked attribute */}
-        <Checkbox label="AWD" />
-        <Checkbox checked label="Nearby dealership" />
-        <Checkbox label="Good fuel economy" />
-        <Checkbox label="Turbo engine" />
-        </FormField>
-        <TextInputField
-          label="New Attribute"
-          name="attribute"
-          placeholder="Something I want"
-          value={attribute}
-          onChange={(e) => setAttribute(e.target.value)}
-        />
-        <Button appearance="primary" type="button" onClick={(e) => addAttribute(e)}>Add</Button>
-        {/* on click, transform to save button, show and focus input for new attribute */}
-        <IconButton icon="plus" />
-        {/* on click, save to db, redirect to new single car page */}
-        {/* if error, display error message */}
+        <CarFormAttributes attributes={basicAttributes} />
         <Button appearance="primary" type="submit">Save Car</Button>
       </form>
     </Pane>
