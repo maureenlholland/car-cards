@@ -9,15 +9,17 @@ import {
 } from 'evergreen-ui';
 import CarSummary from './CarSummary';
 import CarAttributes from './CarAttributes';
-import car from '../mockData/car';
+import cars from '../mockData/cars';
 
 function CarCard({ car }) {
   return (
     <ListItem className="car-cards__single">
-      <Card elevation={2} padding="20px">
+      <Card elevation={2} padding="20px" background="white">
         <CarSummary car={car} />
         <CarAttributes attributes={car.attributes} />
-        <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to="/mazda"><Button>See details</Button></NavLink>
+        <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to="/mazda">
+          <Button marginTop="20px"  iconAfter="arrow-right">See full summary</Button>
+        </NavLink>
       </Card>
     </ListItem>
   );
@@ -27,12 +29,8 @@ export default function CarCards() {
   return (
     <Pane className="car-cards">
         <UnorderedList>
-          <CarCard car={car} />
-          <CarCard car={car} />
+          {cars.map((c) => <CarCard car={c}/>)}
         </UnorderedList>
-        <Button appearance="primary" height="34">
-          <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to="/form">Add new card</NavLink>
-        </Button>
     </Pane>
   );
 }

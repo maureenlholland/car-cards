@@ -4,6 +4,7 @@ import { TextareaField } from 'evergreen-ui';
 export default function CarFormNote({ note, handleChange }) {
     return (
         <TextareaField
+            marginTop="30px"
             className="car-form-note"
             label="Note"
             description="Highlight pros or cons, add personal opinions, link to outside reviews."

@@ -5,7 +5,7 @@ import attributes from './attributes';
 has many attributes
 has many notes (dependent, destroy)
 */ 
-export default {
+export default [{
     id: 'mazda',
     make: 'mazda',
     model: 'CX 5',
@@ -17,4 +17,4 @@ export default {
     updated_at: 'date',
     attributes: [...attributes],
     notes: [...notes],
-}
+}]

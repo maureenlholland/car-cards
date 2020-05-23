@@ -10,7 +10,6 @@ import CarCards from './components/CarCards';
 import Car from './components/Car';
 import CarForm from './components/CarForm';
 
-const wrapperStyles = { maxWidth: '900px', margin: '0 auto', padding: '40px' };
 // initial view is user projects, if none, start new project button
 // users can invite collaborators to their projects
 
@@ -19,7 +18,7 @@ function App() {
     <Router>
       <Pane className="app">
         <Header />
-        <main style={wrapperStyles}>
+        <main className="wrapper">
           <Switch>
           <Route path="/form">
               <CarForm />

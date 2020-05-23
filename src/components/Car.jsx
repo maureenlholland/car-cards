@@ -1,18 +1,20 @@
 import React from 'react';
 import { Link as NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { Pane, IconButton } from 'evergreen-ui';
+import { Card, IconButton } from 'evergreen-ui';
 import CarNotes from './CarNotes';
 import CarSummary from './CarSummary';
 import CarAttributes from './CarAttributes';
-import car from '../mockData/car';
+import cars from '../mockData/cars';
 
 function Car() {
   // on mount, use id to fetch info from db
   let { id } = useParams();
+  // mock data for now
+  const car = cars[0];
 
   return (
-    <Pane className={`car car--${id}`}>
+    <Card elevation={3} background="white" padding="20px" className={`car car--${id}`}>
         <NavLink to={`/form?id=${car.id}`}>
           <IconButton icon="edit" />
         </NavLink>
@@ -21,7 +23,7 @@ function Car() {
         <CarSummary car={car} />
         <CarAttributes attributes={car.attributes} />
         <CarNotes savedNotes={car.notes} />
-    </Pane>
+    </Card>
   );
 }
 

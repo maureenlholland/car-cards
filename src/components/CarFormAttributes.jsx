@@ -23,7 +23,6 @@ function camelCase(string) {
 export default function CarFormAttributes({ attributes }) {
     const [attributeList, updateAttributeList] = useState([...attributes])
     const [attribute, setAttribute] = useState('');
-    const [addAttribute, setAddAttribute] = useState(false);
 
     const toggleChecked = (e) => {
         // change appropriate attr to opposite of existing checked status
@@ -47,7 +46,7 @@ export default function CarFormAttributes({ attributes }) {
             value: camelCase(attribute)
         }
         updateAttributeList([...attributeList, newAttribute])
-        setAddAttribute(false)
+        setAttribute('')
     }
 
     return (
@@ -57,24 +56,20 @@ export default function CarFormAttributes({ attributes }) {
                 description="Select all that apply. These are searchable attributes on the quick view cards"
                 className="car-form-attributes"
             >
-            {/* on click, toggle checkbox checked attribute */}
                 {attributeList.map(({value, label, isChecked}) => {
                     return <Checkbox key={value} label={label} name={value} value={value} checked={isChecked} onClick={(e) => toggleChecked(e)} />
                 })}
             </FormField>
-            {addAttribute ? (
-                <>
-                    <TextInputField
-                        label="New Attribute"
-                        name="attribute"
-                        className="car-form-attributes__single"
-                        placeholder="Something I want"
-                        value={attribute}
-                        onChange={(e) => setAttribute(e.target.value)}
-                    />
-                    <Button appearance="primary" type="button" onClick={addNewAttribute}>Add</Button>
-                </>
-            ) : <IconButton icon="plus" onClick={e => setAddAttribute(true)} />}
+            <TextInputField
+                label="New Attribute"
+                name="attribute"
+                className="car-form-attributes__single"
+                placeholder="Something I want"
+                value={attribute}
+                onChange={(e) => setAttribute(e.target.value)}
+                marginBottom="10px"
+            />
+            <Button type="button" onClick={addNewAttribute}>Add attribute</Button>
         </>
     )
 }

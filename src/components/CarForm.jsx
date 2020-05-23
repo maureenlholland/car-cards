@@ -43,8 +43,8 @@ function CarForm() {
 
   return (
     <Pane className="car-form">
-      <Heading is="h2">{window.location.search ? 'Edit car' : 'New car'}</Heading>
-      <form onSubmit={(e) => handleSubmit(e)}>
+      <Heading is="h2" textAlign="center">{window.location.search ? 'Edit car' : 'New car'}</Heading>
+      <form onSubmit={(e) => handleSubmit(e)} style={{ maxWidth: '600px', margin: '0 auto' }}>
         <TextInputField
           label="Make"
           name="make"
@@ -82,6 +82,7 @@ function CarForm() {
           onChange={(e) => setLink(e.target.value)}
         />
         <RadioGroup
+          size={16}
           label="Status"
           value={status}
           options={[{label: 'New', value: 'new'}, {label: 'Pre-owned', value: 'preOwned'}]}
@@ -89,8 +90,10 @@ function CarForm() {
         />
         <FormField
           label="Price Range"
+          marginTop="30px"
         >
           <TextInputField
+            marginTop="10px"
             label="High"
             name="highPrice"
             placeholder="$43,965"
@@ -107,8 +110,10 @@ function CarForm() {
         </FormField>
         <FormField
           label="Dimensions"
+          marginTop="30px"
         >
           <TextInputField
+            marginTop="10px"
             label="Length"
             name="length"
             placeholder="4550mm"
@@ -134,7 +139,7 @@ function CarForm() {
         {window.location.search ? (
           <Paragraph>To add, edit, or delete notes, please see the User Notes section on the single car page.</Paragraph>
         ): <CarFormNote note={note} handleChange={setNote} />}
-        <Button appearance="primary" type="submit">Save Car</Button>
+        <Button type="submit">Save Car</Button>
       </form>
     </Pane>
   );

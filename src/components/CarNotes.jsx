@@ -55,7 +55,7 @@ export default function CarNotes({ savedNotes, saveNote }) {
 
     return (
         <Pane className="car-notes">
-            <Heading is="h3">User Notes: </Heading>
+            <Heading is="h3" size={700}>User Notes: </Heading>
             {(notes.length > 0 || addNote) ? (
                 notes.map((n) => (
                     <CarNote
@@ -73,9 +73,9 @@ export default function CarNotes({ savedNotes, saveNote }) {
             {addNote ? (
                 <>
                     <CarFormNote note={note} handleChange={setNote} />
-                    <Button appearance="primary" type="button" onClick={handleSave}>Save Note</Button>
+                    <Button type="button" onClick={handleSave}>Save Note</Button>
                 </>
-            ) : <Button appearance="primary" type="button" onClick={() => setAddNote(true)}>Add Note</Button>}
+            ) : <Button type="button" onClick={() => setAddNote(true)}>Add Note</Button>}
         </Pane>
     )
 }
