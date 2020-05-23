@@ -13,7 +13,7 @@ function Car() {
   return (
     <Pane className={`car car--${id}`}>
         <CarSummary car={car} />
-        <CarAttributes tags={car.attributes} />
+        <CarAttributes attributes={car.attributes} />
         <CarNotes savedNotes={car.notes} />
     </Pane>
   );

@@ -54,7 +54,7 @@ export default function CarFormAttributes({ attributes }) {
         <>
             <FormField
                 label="Attributes"
-                description="Select all that apply. These are searchable tags on the quick view cards"
+                description="Select all that apply. These are searchable attributes on the quick view cards"
                 className="car-form-attributes"
             >
             {/* on click, toggle checkbox checked attribute */}

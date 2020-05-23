@@ -16,7 +16,7 @@ function CarCard({ car }) {
     <ListItem className="car-cards__single">
       <Card elevation={2} padding="20px" background="white">
         <CarSummary car={car} />
-        <CarAttributes tags={car.attributes} />
+        <CarAttributes attributes={car.attributes} />
         <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to="/mazda"><Button>See details</Button></NavLink>
       </Card>
     </ListItem>
