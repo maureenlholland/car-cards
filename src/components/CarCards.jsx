@@ -14,25 +14,24 @@ import {
 
 function CarCard() {
   return (
-    <ListItem>
+    <ListItem className="car-cards__single">
       <Card elevation={2} padding="20px" background="white">
         <Heading is="h2">Mazda CX-5</Heading>
-        {/* send to /edit with :id */}
-        <IconButton icon="edit" />
+        <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to="edit?id=mazda"><IconButton icon="edit" /></NavLink>
         {/* are you sure popup, delete from db, update list */}
         <IconButton icon="trash" />
         <Link>Link to car</Link>
         <Paragraph>Quick facts: Price, Size</Paragraph>
         <Paragraph>Tags list</Paragraph>
-        <Button>See details</Button>
+        <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to="/mazda"><Button>See details</Button></NavLink>
       </Card>
     </ListItem>
   );
 }
 
-function CarCardList() {
+export default function CarCards() {
   return (
-    <Pane className="car__list">
+    <Pane className="car-cards">
         <UnorderedList
           display="grid"
           gridTemplateColumns="1fr 1fr 1fr"
@@ -47,5 +46,3 @@ function CarCardList() {
     </Pane>
   );
 }
-
-export default CarCardList;

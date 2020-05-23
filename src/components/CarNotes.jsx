@@ -10,7 +10,7 @@ import CarFormNote from './CarFormNote';
 
 const carNote = ({ note, setNote, editNoteId, setEditNoteId }) => {
     return (
-        <Card>
+        <Card className="car-notes__single">
             {editNoteId === note.id ? (
                 <CarFormNote note={note} handleChange={setNote} />
             ) : (
@@ -25,22 +25,26 @@ const carNote = ({ note, setNote, editNoteId, setEditNoteId }) => {
     );
 };
 
-export default function SingleCarNotes({ saveNote }) {
+export default function CarNotes({ saveNote }) {
     const [notes, updateNotes] = useState([])
     const [editNoteId, setEditNoteId] = useState(null);
     const [note, setNote] = useState('');
     const [addNote, setAddNote] = useState(false);
 
-    // on mount, add existing notes to state
-    // on save, save note to db, replace existing notes state with db response, if addNote is true, set to false
+    const handleSave = () => {
+        console.log('add note to db')
+        console.log(note);
+        // on save, save note to db, replace existing notes state with db response, if addNote is true, set to false
+        // updateNotes with db response, set addNote to false
+    }
 
     return (
-        <Pane className="single-car__notes">
+        <Pane className="car-notes">
             {notes.map((note) => carNote(note, setNote, editNoteId, setEditNoteId))}
             {addNote ? (
                 <>
                     <CarFormNote note={note} handleChange={setNote} />
-                    <Button appearance="primary" type="button" onClick={updateNotes}>Save Note</Button>
+                    <Button appearance="primary" type="button" onClick={handleSave}>Save Note</Button>
                 </>
             ) : <Button appearance="primary" type="button" onClick={() => setAddNote(true)}>Add Note</Button>}
         </Pane>

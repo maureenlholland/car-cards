@@ -7,6 +7,7 @@ import {
   FormField,
   SelectField,
   RadioGroup,
+  Paragraph,
 } from 'evergreen-ui';
 import CarFormAttributes from './CarFormAttributes';
 import CarFormNote from './CarFormNote';
@@ -52,6 +53,7 @@ function CarForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    console.log('validate and save data, redirect to new single car page')
     // get all checked attributes
     // clean data
     // add created at value
@@ -62,7 +64,7 @@ function CarForm() {
   }
 
   return (
-    <Pane className="car__form">
+    <Pane className="car-form">
       <Heading is="h2">Car Form</Heading>
       <form onSubmit={(e) => handleSubmit(e)}>
         <TextInputField
@@ -151,8 +153,9 @@ function CarForm() {
           />
         </FormField>
         <CarFormAttributes attributes={basicAttributes} />
-        {/* If new car, show notes form. If not, tell user to edit notes directly on car page */}
-        <CarFormNote note={note} handleChange={setNote} />
+        {window.location.search ? (
+          <Paragraph>To add, edit, or delete notes, please see the Notes section on the single car page.</Paragraph>
+        ): <CarFormNote note={note} handleChange={setNote} />}
         <Button appearance="primary" type="submit">Save Car</Button>
       </form>
     </Pane>
