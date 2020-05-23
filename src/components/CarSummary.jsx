@@ -7,12 +7,13 @@ import {
     Link
 } from 'evergreen-ui';
 
-export default function CarQuickFacts({ car }) {
+export default function CarSummary({ car }) {
     return (
         <>
         <Heading is="h2">{`${car.make} ${car.model} ${car.year}`}</Heading>
-        <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to={`edit?id=${car.id}`}><IconButton icon="edit" /></NavLink>
-        <Heading is="h3">Quick facts: </Heading>
+        <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to={`edit?id=${car.id}`}>
+            <IconButton icon="edit" />
+        </NavLink>
         <Link>{car.link}</Link>
         <Paragraph>Price Range: {`${car.lowPrice} - ${car.highPrice}`}</Paragraph>
         </>

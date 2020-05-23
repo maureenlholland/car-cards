@@ -11,32 +11,10 @@ import {
 } from 'evergreen-ui';
 import CarFormAttributes from './CarFormAttributes';
 import CarFormNote from './CarFormNote';
+import attributes from '../mockData/attributes';
 
 
 function CarForm() {
-  const basicAttributes = [
-    {
-      label: 'AWD',
-      value: 'awd',
-      isChecked: false
-    },
-    {
-      label: 'Nearby dealership',
-      value: 'dealership',
-      isChecked: false
-    },
-    {
-      label: 'Good fuel economy',
-      value: 'fuel',
-      isChecked: false
-    },
-    {
-      label: 'Turbo engine',
-      value: 'turbo',
-      isChecked: false
-    }
-  ];
-
   // on mount, merge blank state with existing car info if params id
 
   const [make, setMake] = useState('');
@@ -152,9 +130,9 @@ function CarForm() {
             onChange={(e) => setHeight(e.target.value)}
           />
         </FormField>
-        <CarFormAttributes attributes={basicAttributes} />
+        <CarFormAttributes attributes={attributes} />
         {window.location.search ? (
-          <Paragraph>To add, edit, or delete notes, please see the Notes section on the single car page.</Paragraph>
+          <Paragraph>To add, edit, or delete notes, please see the User Notes section on the single car page.</Paragraph>
         ): <CarFormNote note={note} handleChange={setNote} />}
         <Button appearance="primary" type="submit">Save Car</Button>
       </form>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {
     Pane,
+    Heading,
     Card,
     Paragraph,
     IconButton,
@@ -40,6 +41,7 @@ export default function CarNotes({ savedNotes, saveNote }) {
 
     return (
         <Pane className="car-notes">
+            <Heading is="h3">User Notes: </Heading>
             {(notes.length > 0 || addNote) ? (
                 notes.map((note) => carNote(note, setNote, editNoteId, setEditNoteId))
             ) : (
