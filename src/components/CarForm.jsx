@@ -9,6 +9,7 @@ import {
   RadioGroup,
 } from 'evergreen-ui';
 import CarFormAttributes from './CarFormAttributes';
+import CarFormNote from './CarFormNote';
 
 
 function CarForm() {
@@ -47,11 +48,14 @@ function CarForm() {
   const [height, setHeight] = useState('');
   const [width, setWidth] = useState('');
   const [length, setLength] = useState('');
+  const [note, setNote] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
     // get all checked attributes
     // clean data
+    // add created at value
+    // add created by user value
     // call firebase to save car
       // on success, redirect to new car card 
       // on failure, display errors
@@ -147,6 +151,8 @@ function CarForm() {
           />
         </FormField>
         <CarFormAttributes attributes={basicAttributes} />
+        {/* If new car, show notes form. If not, tell user to edit notes directly on car page */}
+        <CarFormNote note={note} handleChange={setNote} />
         <Button appearance="primary" type="submit">Save Car</Button>
       </form>
     </Pane>
