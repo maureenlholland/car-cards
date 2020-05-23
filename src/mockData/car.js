@@ -1,4 +1,10 @@
-// mock data to decide structure before creating db
+import notes from './notes';
+import attributes from './attributes';
+
+/* Car
+has many attributes
+has many notes (dependent, destroy)
+*/ 
 export default {
     id: 'mazda',
     make: 'mazda',
@@ -7,19 +13,8 @@ export default {
     highPrice: '40,000',
     lowPrice: '25,000',
     link: 'www.mazda.ca',
-    attributes: [
-      {
-        label: 'AWD',
-        value: 'awd',
-      },
-      {
-        label: 'Turbo engine',
-        value: 'turboEngine'
-      },
-      {
-        label: 'Good fuel economy',
-        value: 'goodFuelEconomy'
-      }
-    ],
-    notes: []
+    created_at: 'date',
+    updated_at: 'date',
+    attributes: [...attributes],
+    notes: [...notes],
 }

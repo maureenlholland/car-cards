@@ -14,7 +14,7 @@ import car from '../mockData/car';
 function CarCard({ car }) {
   return (
     <ListItem className="car-cards__single">
-      <Card elevation={2} padding="20px" background="white">
+      <Card elevation={2} padding="20px">
         <CarSummary car={car} />
         <CarAttributes attributes={car.attributes} />
         <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to="/mazda"><Button>See details</Button></NavLink>

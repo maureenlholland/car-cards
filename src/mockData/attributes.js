@@ -1,3 +1,6 @@
+/* Attibutes
+belongs to many cars
+*/
 export default [
     {
       label: 'AWD',

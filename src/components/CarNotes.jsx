@@ -9,7 +9,7 @@ import {
 } from 'evergreen-ui';
 import CarFormNote from './CarFormNote';
 
-const carNote = ({ note, setNote, editNoteId, setEditNoteId }) => {
+const CarNote = ({ note, setNote, editNoteId, setEditNoteId }) => {
     return (
         <Card className="car-notes__single">
             {editNoteId === note.id ? (
@@ -19,7 +19,7 @@ const carNote = ({ note, setNote, editNoteId, setEditNoteId }) => {
                 <IconButton icon="edit" onClick={(e) => setEditNoteId(note.id)} />
                 {/* are you sure popup, delete from db, update list */}
                 <IconButton icon="trash" />
-                <Paragraph>{note}</Paragraph>
+                <Paragraph>{note.content}</Paragraph>
                 </>
             )}
         </Card>
@@ -27,7 +27,7 @@ const carNote = ({ note, setNote, editNoteId, setEditNoteId }) => {
 };
 
 export default function CarNotes({ savedNotes, saveNote }) {
-    const [notes, updateNotes] = useState([])
+    const [notes, updateNotes] = useState([...savedNotes])
     const [editNoteId, setEditNoteId] = useState(null);
     const [note, setNote] = useState('');
     const [addNote, setAddNote] = useState(false);
@@ -43,7 +43,15 @@ export default function CarNotes({ savedNotes, saveNote }) {
         <Pane className="car-notes">
             <Heading is="h3">User Notes: </Heading>
             {(notes.length > 0 || addNote) ? (
-                notes.map((note) => carNote(note, setNote, editNoteId, setEditNoteId))
+                notes.map((n) => (
+                    <CarNote
+                        key={n.id}
+                        note={n}
+                        setNote={setNote}
+                        editNoteId={editNoteId}
+                        setEditNoteId={setEditNoteId}
+                    />
+                ))
             ) : (
                 <Paragraph>You have no notes!</Paragraph>
             )}
