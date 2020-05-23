@@ -4,7 +4,8 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import { Heading, Pane } from 'evergreen-ui';
+import { Pane } from 'evergreen-ui';
+import Header from './components/Header';
 import CarCards from './components/CarCards';
 import Car from './components/Car';
 import CarForm from './components/CarForm';
@@ -15,9 +16,7 @@ function App() {
   return (
     <Router>
       <Pane className="app">
-        <header>
-          <Heading is="h1" size={900} marginTop="40px" textAlign="center">Car Cards</Heading>
-        </header>
+        <Header />
         <main style={wrapperStyles}>
           <Switch>
           <Route path="/edit">
