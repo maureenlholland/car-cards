@@ -12,6 +12,7 @@ function Car() {
 
   return (
     <Pane className={`car car--${id}`}>
+        {/* add edit for car summary and attributes, delete for car */}
         <CarSummary car={car} />
         <CarAttributes attributes={car.attributes} />
         <CarNotes savedNotes={car.notes} />

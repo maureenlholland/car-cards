@@ -1,7 +1,7 @@
 import notes from './notes';
 import attributes from './attributes';
 
-/* Car
+/* Cars
 has many attributes
 has many notes (dependent, destroy)
 */ 

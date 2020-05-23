@@ -1,27 +1,17 @@
-/* User
+/* Users
+has many projects
 has many notes
+has many cars
 */ 
-export default {
-    id: 'mazda',
-    make: 'mazda',
-    model: 'CX 5',
-    year: '2020',
-    highPrice: '40,000',
-    lowPrice: '25,000',
-    link: 'www.mazda.ca',
-    attributes: [
-      {
-        label: 'AWD',
-        value: 'awd',
-      },
-      {
-        label: 'Turbo engine',
-        value: 'turboEngine'
-      },
-      {
-        label: 'Good fuel economy',
-        value: 'goodFuelEconomy'
-      }
-    ],
-    notes: []
-}
+export default [
+    {
+        id: 'user-test',
+        name: 'Test',
+        projects: ['id1', 'id2']
+    },
+    {
+        id: 'other-user-test',
+        name: 'Other Test',
+        projects: ['id1']
+    }
+]
