@@ -40,7 +40,11 @@ export default function CarNotes({ savedNotes, saveNote }) {
 
     return (
         <Pane className="car-notes">
-            {notes.map((note) => carNote(note, setNote, editNoteId, setEditNoteId))}
+            {(notes.length > 0 || addNote) ? (
+                notes.map((note) => carNote(note, setNote, editNoteId, setEditNoteId))
+            ) : (
+                <Paragraph>You have no notes!</Paragraph>
+            )}
             {addNote ? (
                 <>
                     <CarFormNote note={note} handleChange={setNote} />

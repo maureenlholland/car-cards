@@ -10,32 +10,7 @@ import {
 } from 'evergreen-ui';
 import CarNotes from './CarNotes';
 import CarTags from './CarTags';
-
-// mock data to decide structure
-const car = {
-  id: 'mazda',
-  make: 'mazda',
-  model: 'CX 5',
-  year: '2020',
-  highPrice: '40,000',
-  lowPrice: '25,000',
-  link: 'www.mazda.ca',
-  attributes: [
-    {
-      label: 'AWD',
-      value: 'awd',
-    },
-    {
-      label: 'Turbo engine',
-      value: 'turboEngine'
-    },
-    {
-      label: 'Good fuel economy',
-      value: 'goodFuelEconomy'
-    }
-  ],
-  notes: []
-}
+import car from '../mockData/car';
 
 function Car() {
   // on mount, use id to fetch info from db
