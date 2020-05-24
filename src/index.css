@@ -16,7 +16,7 @@ code {
 .wrapper {
   max-width: 900px;
   margin: 0 auto;
-  padding: 40px;
+  padding: 20px 40px;
 }
 
 .fb-container {
@@ -33,7 +33,8 @@ header {
   text-align: center;
 }
 
-.car-cards ul,
+.home ul,
+.deck ul,
 .car ul {
   list-style: none;
   padding-left: 0;
