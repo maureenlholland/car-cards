@@ -29,6 +29,8 @@ function CarForm() {
   const [length, setLength] = useState('');
   const [note, setNote] = useState('')
 
+  const isNewCar = !window.location.search;
+
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('validate and save data, redirect to new single car page')
@@ -43,7 +45,7 @@ function CarForm() {
 
   return (
     <Pane className="car-form">
-      <Heading is="h2" textAlign="center">{window.location.search ? 'Edit car' : 'New car'}</Heading>
+      <Heading is="h2" textAlign="center">{isNewCar ? 'New car' : 'Edit car'}</Heading>
       <form onSubmit={(e) => handleSubmit(e)} style={{ maxWidth: '600px', margin: '0 auto' }}>
         <TextInputField
           label="Make"
@@ -136,10 +138,10 @@ function CarForm() {
           />
         </FormField>
         <CarFormAttributes attributes={attributes} />
-        {window.location.search ? (
-          <Paragraph>To add, edit, or delete notes, please see the User Notes section on the single car page.</Paragraph>
-        ): <CarFormNote note={note} handleChange={setNote} />}
-        <Button type="submit">Save Car</Button>
+        {isNewCar ? <CarFormNote note={note} handleChange={setNote} /> : (
+          <Paragraph marginTop="20px" marginBottom="40px">To add, edit, or delete notes, please see the User Notes section on the single car page.</Paragraph>
+        )}
+        <Button type="submit">{isNewCar ? 'Save Car' : 'Save Changes'}</Button>
       </form>
     </Pane>
   );
