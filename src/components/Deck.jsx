@@ -1,4 +1,5 @@
-import React, { useParams } from 'react';
+import React from 'react';
+import { useParams } from "react-router-dom";
 import { Link as NavLink } from "react-router-dom";
 import {
   Card,
@@ -7,9 +8,10 @@ import {
   ListItem,
   Button,
 } from 'evergreen-ui';
-import CarSummary from './CarSummary';
-import CarAttributes from './CarAttributes';
+import CarSummary from './car/CarSummary';
+import CarAttributes from './car/CarAttributes';
 import cars from '../mockData/cars';
+import decks from '../mockData/decks';
 
 function CarCard({ car }) {
   return (
@@ -17,7 +19,7 @@ function CarCard({ car }) {
       <Card elevation={2} padding="20px" background="white">
         <CarSummary car={car} />
         <CarAttributes attributes={car.attributes} />
-        <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to="/mazda">
+        <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to={`/car/${car.id}`}>
           <Button marginTop="20px"  iconAfter="arrow-right">See full summary</Button>
         </NavLink>
       </Card>
@@ -26,13 +28,13 @@ function CarCard({ car }) {
 }
 
 export default function Deck() {
-  // on mount, use id to fetch info from db
+  // on mount, use id to fetch deck cards from db
   let { id } = useParams();
   // mock data for now
-  const deck = deck[0];
+  const deck = decks[0];
 
   return (
-    <Pane className={`deck deck--id`}>
+    <Pane className={`deck deck--${deck.id}`}>
         <UnorderedList>
           {cars.map((c) => <CarCard key={c.id} car={c}/>)}
         </UnorderedList>

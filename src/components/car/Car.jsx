@@ -4,7 +4,7 @@ import { Card } from 'evergreen-ui';
 import CarNotes from './CarNotes';
 import CarSummary from './CarSummary';
 import CarAttributes from './CarAttributes';
-import cars from '../mockData/cars';
+import cars from '../../mockData/cars';
 
 function Car() {
   // on mount, use id to fetch info from db

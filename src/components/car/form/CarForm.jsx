@@ -11,7 +11,7 @@ import {
 } from 'evergreen-ui';
 import CarFormAttributes from './CarFormAttributes';
 import CarFormNote from './CarFormNote';
-import attributes from '../mockData/attributes';
+import attributes from '../../../mockData/attributes';
 
 
 function CarForm() {

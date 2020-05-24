@@ -8,8 +8,8 @@ import { Pane } from 'evergreen-ui';
 import Home from './components/Home';
 import Header from './components/Header';
 import Deck from './components/Deck';
-import Car from './components/Car';
-import CarForm from './components/CarForm';
+import Car from './components/car/Car';
+import CarForm from './components/car/form/CarForm';
 
 // initial view is user projects, if none, start new project button
 // users can invite collaborators to their projects

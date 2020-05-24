@@ -12,7 +12,7 @@ export default function Header() {
                 {/* if deck, label of deck and add new card button */}
                 {/* if car or form, go back button */}
                 <Button height="34">
-                    <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to="/form">Add new card</NavLink>
+                    <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to="/car/form">Add new card</NavLink>
                 </Button>
             </div>
         </header>

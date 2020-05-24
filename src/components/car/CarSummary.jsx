@@ -15,7 +15,7 @@ export default function CarSummary({ car }) {
                 {`${car.make} ${car.model} ${car.year}`}
             </Heading>
             <div className="actions actions--car">
-                <NavLink to={`/form?id=${car.id}`}>
+                <NavLink to={`/car/form?id=${car.id}`}>
                     <IconButton icon="edit" />
                 </NavLink>
                 {/* are you sure popup, delete from db, update list */}

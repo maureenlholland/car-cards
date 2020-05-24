@@ -8,8 +8,8 @@ import {
     Button,
     Avatar,
 } from 'evergreen-ui';
-import CarFormNote from './CarFormNote';
-import users from '../mockData/users';
+import CarFormNote from './form/CarFormNote';
+import users from '../../mockData/users';
 
 const CarNote = ({ note, setNote, editNoteId, setEditNoteId, user }) => {
     // only show edit/delete buttons if note user_id is current logged in user
