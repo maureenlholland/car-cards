@@ -25,11 +25,7 @@ function DeckCard({ deck }) {
   }
 
 export default function Home() {
-    // Redirect to login if user not identified
-    // Show add new deck button if user has no decks (like attribute, just a label field)
-    // Show list of decks if user has decks
-
-    // on mount, api call to get decks by user
+    // On mount, call api for decks belonging to this user
     const deck = decks[0];
     return (
         <Pane className={`deck deck--${deck.id}`}>

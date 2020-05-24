@@ -5,6 +5,7 @@ import {
   Route
 } from "react-router-dom";
 import { Pane } from 'evergreen-ui';
+import Login from './components/Login';
 import Home from './components/Home';
 import Header from './components/Header';
 import Deck from './components/Deck';
@@ -15,25 +16,30 @@ import CarForm from './components/car/form/CarForm';
 // users can invite collaborators to their projects
 
 function App() {
+  // Test no user 
+  const user = null;
+
   return (
     <Router>
       <Pane className="app">
         <Header />
         <main className="wrapper">
-          <Switch>
-          <Route path="/car/form">
-              <CarForm />
-            </Route>
-            <Route path="/car/:id">
-              <Car />
-            </Route>
-            <Route path="/:id">
-              <Deck />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
+          {!user ? <Login /> : (
+            <Switch>
+            <Route path="/car/form">
+                <CarForm />
+              </Route>
+              <Route path="/car/:id">
+                <Car />
+              </Route>
+              <Route path="/:id">
+                <Deck />
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
+          )}
         </main>
       </Pane>
     </Router>
