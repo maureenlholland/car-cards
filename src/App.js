@@ -5,7 +5,7 @@ import {
   Route
 } from "react-router-dom";
 import { Pane } from 'evergreen-ui';
-import Login from './components/Login';
+import Auth from './components/auth/Auth';
 import Home from './components/Home';
 import Header from './components/Header';
 import Deck from './components/Deck';
@@ -24,7 +24,7 @@ function App() {
       <Pane className="app">
         <Header />
         <main className="wrapper">
-          {!user ? <Login /> : (
+          {!user ? <Auth /> : (
             <Switch>
             <Route path="/car/form">
                 <CarForm />
