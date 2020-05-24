@@ -4,6 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - nice, clean aesthetic
 - easy to use
 - limited components (ie. no range input)
+- default font sizing way too small
 
 ## Random thoughts
 - Planning something as you build it is not a good strategy

@@ -13,6 +13,7 @@ code {
     monospace;
 }
 
+/* padding 20 on mobile */
 .wrapper {
   max-width: 900px;
   margin: 0 auto;

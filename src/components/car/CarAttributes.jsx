@@ -5,8 +5,9 @@ export default function CarAttributes({ attributes }) {
     return (
         <UnorderedList className="car-attribute">
             {attributes.map((attribute) => (
+                // long tags could spill out of container on mobile
                 <ListItem key={attribute.value}>
-                    <Badge color="neutral" isSolid>{attribute.label}</Badge>
+                    <Badge height="auto" color="neutral" isSolid>{attribute.label}</Badge>
                 </ListItem>
             ))}
         </UnorderedList>
