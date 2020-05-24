@@ -3,3 +3,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## [Evergreen UI](https://evergreen.segment.com/)
 - nice, clean aesthetic
 - easy to use
+- limited components (ie. no range input)
