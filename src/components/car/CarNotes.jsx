@@ -9,7 +9,7 @@ import {
     Avatar,
 } from 'evergreen-ui';
 import CarFormNote from './form/CarFormNote';
-import users from '../../mockData/users';
+import { usersWithAvatar as users } from '../../mockData/users';
 
 const CarNote = ({ note, setNote, editNoteId, setEditNoteId, user }) => {
     // only show edit/delete buttons if note user_id is current logged in user
@@ -52,11 +52,6 @@ export default function CarNotes({ savedNotes, saveNote }) {
     const [note, setNote] = useState('');
     const [addNote, setAddNote] = useState(false);
 
-    // on mount, set user avatars
-    const usersWithAvatar = users.map((u) => {
-        return { ...u, avatar: `https://placedog.net/150/150?id=${Math.ceil(Math.random() * 100)}`}
-    })
-
     const handleSave = () => {
         console.log('add note to db')
         console.log(note);
@@ -75,7 +70,7 @@ export default function CarNotes({ savedNotes, saveNote }) {
                         setNote={setNote}
                         editNoteId={editNoteId}
                         setEditNoteId={setEditNoteId}
-                        user={usersWithAvatar.find(u => u.id === n.user_id)}
+                        user={users.find(u => u.id === n.user_id)}
                     />
                 ))
             ) : (

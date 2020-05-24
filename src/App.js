@@ -11,13 +11,16 @@ import Header from './components/Header';
 import Deck from './components/Deck';
 import Car from './components/car/Car';
 import CarForm from './components/car/form/CarForm';
+import { users } from './mockData/users';
 
 // initial view is user projects, if none, start new project button
 // users can invite collaborators to their projects
 
 function App() {
   // Test no user 
-  const user = null;
+  // const user = null;
+  // Test legit user
+  const user = users[0];
 
   return (
     <Router>

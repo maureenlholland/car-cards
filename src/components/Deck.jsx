@@ -28,8 +28,10 @@ function CarCard({ car }) {
 }
 
 export default function Deck() {
-  // on mount, use id to fetch deck cards from db
-  let { id } = useParams();
+  // on mount
+  // use id to fetch deck cards from db
+  // set deck user avatars with random dog pictures, do not refresh pictures for rest of session
+  // let { id } = useParams();
   // mock data for now
   const deck = decks[0];
 

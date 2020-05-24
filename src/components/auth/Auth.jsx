@@ -15,9 +15,8 @@ const authTabs = {
 };
 
 export default function Auth() {
-    const [activeTab, setActiveTab] = useState('login');
-    // control inputs
-    // create or set user on submit
+    const [activeTab, setActiveTab] = useState('login')
+
     return (
         <div style={{ maxWidth: '500px', margin: '0 auto' }}>
             <Card background="white" padding="20px" elevation={3}>
