@@ -37,6 +37,15 @@ export default function Deck() {
 
   return (
     <Pane className={`deck deck--${deck.id}`}>
+        <Button
+          height="34"
+          marginBottom="20px"
+          marginRight="auto"
+          marginLeft="auto"
+          display="block"
+        >
+            <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to="/car/form">Add new card</NavLink>
+        </Button>
         <UnorderedList>
           {cars.map((c) => <CarCard key={c.id} car={c}/>)}
         </UnorderedList>
