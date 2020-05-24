@@ -5,6 +5,7 @@ has many Cards
 export default [
     {
         id: 'deck-1',
-        label: 'Maureen - Primary vehicle'
+        label: 'Small SUV (primary vehicle)',
+        user_id: 'usertest'
     }
 ]

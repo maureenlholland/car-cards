@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link as NavLink } from "react-router-dom";
 import {
   Card,
@@ -7,13 +7,13 @@ import {
   UnorderedList,
   ListItem,
   Button,
-  Paragraph,
+  TextInputField,
 } from 'evergreen-ui';
-import decks from '../mockData/decks';
+import mockDecks from '../mockData/decks';
 
 function DeckCard({ deck }) {
     return (
-      <ListItem className="car-cards__single">
+      <ListItem className="deck__single">
         <Card elevation={2} padding="20px" background="white">
           <Heading is="h2">{deck.label}</Heading>
           <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to={`/${deck.id}`}>
@@ -26,12 +26,44 @@ function DeckCard({ deck }) {
 
 export default function Home() {
     // On mount, call api for decks belonging to this user
-    const deck = decks[0];
+    // const decks = [] 
+    const decks = mockDecks;
+    const hasDecks = decks.length > 0;
+    const [deck, setDeck] = useState('');
+
+    const addNewDeck = (e) => {
+        if (!deck) {
+            return alert('Deck must have a name')
+        }
+        // add checked attribute
+        // api call to update decks, reset new deck field 
+        console.log(deck)
+        setDeck('')
+    }
+
     return (
-        <Pane className={`deck deck--${deck.id}`}>
-            {decks.length === 0 ? <Paragraph>No decks yet!</Paragraph> : (
+        <Pane className="home">
+          <Pane
+            maxWidth="500px"
+            marginLeft="auto"
+            marginRight="auto"
+            marginTop="0"
+            marginBottom="0"
+            paddingBottom="20px"
+          >
+            <TextInputField
+                  label="Name"
+                  name="deck"
+                  placeholder="Country truck"
+                  value={deck}
+                  onChange={(e) => setDeck(e.target.value)}
+                  marginBottom="10px"
+              />
+              <Button type="button" onClick={addNewDeck}>Add New Deck</Button>
+            </Pane>
+            {hasDecks && (
                 <UnorderedList>
-                    {decks.map((d) => <DeckCard key={d.id} deck={d}/>)}
+                    {decks.map((deck) => <DeckCard key={deck.id} deck={deck}/>)}
                 </UnorderedList>
             )}
         </Pane>
