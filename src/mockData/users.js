@@ -1,17 +1,17 @@
 /* Users
-has many projects
-has many notes
-has many cars
+has many Decks
+has many Cars through Decks
+has many Notes
 */ 
 export default [
     {
         id: 'user-test',
         name: 'Test',
-        projects: ['id1', 'id2']
+        decks: ['deck-1', 'deck-2']
     },
     {
         id: 'other-user-test',
         name: 'Other Test',
-        projects: ['id1']
+        decks: ['deck-1']
     }
 ]

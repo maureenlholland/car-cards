@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useParams } from 'react';
 import { Link as NavLink } from "react-router-dom";
 import {
   Card,
@@ -25,9 +25,14 @@ function CarCard({ car }) {
   );
 }
 
-export default function CarCards() {
+export default function Deck() {
+  // on mount, use id to fetch info from db
+  let { id } = useParams();
+  // mock data for now
+  const deck = deck[0];
+
   return (
-    <Pane className="car-cards">
+    <Pane className={`deck deck--id`}>
         <UnorderedList>
           {cars.map((c) => <CarCard key={c.id} car={c}/>)}
         </UnorderedList>

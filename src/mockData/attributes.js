@@ -1,5 +1,6 @@
 /* Attibutes
-belongs to many cars
+belongs to one Deck (dependent, destroy)
+belongs to many Cars
 */
 export default [
     {

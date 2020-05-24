@@ -2,8 +2,9 @@ import notes from './notes';
 import attributes from './attributes';
 
 /* Cars
-has many attributes
-has many notes (dependent, destroy)
+belongs to one Deck
+has many Attributes
+has many Notes (dependent, destroy)
 */ 
 export default [{
     id: 'mazda',
@@ -17,4 +18,5 @@ export default [{
     updated_at: 'date',
     attributes: [...attributes],
     notes: [...notes],
+    deck_id: 'deck-1'
 }]

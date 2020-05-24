@@ -5,8 +5,9 @@ import {
   Route
 } from "react-router-dom";
 import { Pane } from 'evergreen-ui';
+import Home from './components/Home';
 import Header from './components/Header';
-import CarCards from './components/CarCards';
+import Deck from './components/Deck';
 import Car from './components/Car';
 import CarForm from './components/CarForm';
 
@@ -20,14 +21,17 @@ function App() {
         <Header />
         <main className="wrapper">
           <Switch>
-          <Route path="/form">
+          <Route path="/car/form">
               <CarForm />
             </Route>
-            <Route path="/:id">
+            <Route path="/car/:id">
               <Car />
             </Route>
+            <Route path="/:id">
+              <Deck />
+            </Route>
             <Route path="/">
-              <CarCards />
+              <Home />
             </Route>
           </Switch>
         </main>

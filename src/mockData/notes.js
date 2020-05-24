@@ -1,6 +1,6 @@
 /* Notes
-belongs to car
-belongs to user (only creating user has permission to edit/delete)
+belongs to one Car
+belongs to one User (only creating user has permission to edit/delete)
 */
 export default [
     {
