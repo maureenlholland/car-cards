@@ -6,21 +6,21 @@ export default [
     {
       label: 'AWD',
       value: 'awd',
-      isChecked: false
+      deck_id: 'deck-1'
     },
     {
       label: 'Nearby dealership',
       value: 'dealership',
-      isChecked: false
+      deck_id: 'deck-1'
     },
     {
       label: 'Good fuel economy',
       value: 'fuel',
-      isChecked: false
+      deck_id: 'deck-1'
     },
     {
       label: 'Turbo engine',
       value: 'turbo',
-      isChecked: false
+      deck_id: 'deck-1'
     }
   ];
